@@ -1,0 +1,34 @@
+.page-history-list{
+  ion-card {
+    position: relative;
+    text-align: center;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 26%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 42%;
+    width: 100%;
+    color: #fff;
+  }
+  .card-date{
+    font-size: 1.0em;
+    position: absolute;
+    width: 100%;
+    color: #f4f4f4;
+    top: 60%;
+  }
+
+  .card-image{
+    width: 100%;
+  }
+}

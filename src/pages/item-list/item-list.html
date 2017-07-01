@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar class="header">
+    <ion-title>图片预测</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page imagebackground">
+  <ion-card *ngFor="let item of Items;let i = index">
+    <img [src]="'http://photo.gqmms.wang/img/'+item.Name+'.jpg'"/>
+    <div class="card-title">{{item.Name}}</div>
+    <div class="card-subtitle">确定程度:{{item.Precent}}</div>
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="plant" icon-left (click)="JumpTo(i)">
+          <ion-icon name='browsers'></ion-icon>
+          详细信息
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button clear small color="plant" icon-left>
+          <ion-icon name='share-alt'></ion-icon>
+          有误?
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

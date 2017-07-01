@@ -1,0 +1,95 @@
+<ion-header class="header">
+  <ion-navbar no-border-bottom>
+    <ion-title>{{selectedItem.Name}}</ion-title>
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="book">
+      <ion-segment-button value="null">
+        形态特征
+      </ion-segment-button>
+      <ion-segment-button value="book1">
+        中国植物志
+      </ion-segment-button>
+      <ion-segment-button value="book2">
+        中国高等植物
+      </ion-segment-button>
+      <ion-segment-button value="book3">
+        高等植物图鉴
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="imagebackground">
+  <div [ngSwitch]="book">
+    <ion-card *ngSwitchCase="'null'">
+      <ion-list>
+        <ion-item *ngFor="let m of txt.type['key'];let i = index">
+          <h2>{{m}}</h2>
+          <h4>{{txt.type['value'][i]}}</h4>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+    <ion-card *ngSwitchCase="'book1'">
+      <ion-card-content>
+        <div *ngIf="txt.book1 !== 'no'; else elseblock">{{txt.book1}}</div>
+        <ng-template class="message" #elseblock>没有查询到信息！</ng-template>
+      </ion-card-content>
+      <ion-row *ngIf="txt.book1 !== 'no'">
+        <ion-col center text-center>
+          <ion-note>
+            来源：中国植物志
+          </ion-note>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="txt.book1 !== 'no'">
+        <ion-col center text-center>
+          <ion-note>
+            知识共享：署名-非商业性使用-禁止演绎
+          </ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <ion-card *ngSwitchCase="'book2'">
+      <ion-card-content>
+        <div *ngIf="txt.book2 !== 'no'; else elseblock">{{txt.book2}}</div>
+        <ng-template class="message" #elseblock>没有查询到信息！</ng-template>
+      </ion-card-content>
+      <ion-row *ngIf="txt.book2 !== 'no'">
+        <ion-col center text-center>
+          <ion-note>
+            来源：中国高等植物
+          </ion-note>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="txt.book2 !== 'no'">
+        <ion-col center text-center>
+          <ion-note>
+            知识共享：署名-非商业性使用-禁止演绎
+          </ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <ion-card *ngSwitchCase="'book3'">
+      <ion-card-content>
+        <div *ngIf="txt.book3 !== 'no'; else elseblock">{{txt.book3}}</div>
+        <ng-template class="message" #elseblock>没有查询到信息！</ng-template>
+      </ion-card-content>
+      <ion-row *ngIf="txt.book3 !== 'no'">
+        <ion-col center text-center>
+          <ion-note>
+            来源：中国高等植物图鉴
+          </ion-note>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="txt.book3 !== 'no'">
+        <ion-col center text-center>
+          <ion-note>
+            知识共享：署名-非商业性使用-禁止演绎
+          </ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+</ion-content>
